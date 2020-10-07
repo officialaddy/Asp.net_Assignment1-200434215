@@ -1,0 +1,869 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{83076BBC-1EA0-45FE-9E17-F3688064BA33}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>College</RootNamespace>
+    <AssemblyName>College</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44374</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.0.35\lib\net461\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CollegeModel.cs" />
+    <Compile Include="Models\Domain\GetCollege_Result.cs" />
+    <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\CollegeRepository.cs" />
+    <Compile Include="Repository\ICollegeRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Admin\material-dashboard-rtl.css" />
+    <Content Include="Content\Admin\material-dashboard.css" />
+    <Content Include="Content\Admin\material-dashboard.min.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\login\main.css" />
+    <Content Include="Content\login\util.css" />
+    <Content Include="css\ajax-loader.gif" />
+    <Content Include="css\animate.css" />
+    <Content Include="css\aos.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\bootstrap\bootstrap-grid.css" />
+    <Content Include="css\bootstrap\bootstrap-reboot.css" />
+    <Content Include="css\css\bootstrap-reboot.css" />
+    <Content Include="css\css\mixins\_text-hide.css" />
+    <Content Include="css\flaticon.css" />
+    <Content Include="css\icomoon.css" />
+    <Content Include="css\ionicons.min.css" />
+    <Content Include="css\magnific-popup.css" />
+    <Content Include="css\open-iconic-bootstrap.min.css" />
+    <Content Include="css\owl.carousel.min.css" />
+    <Content Include="css\owl.theme.default.min.css" />
+    <Content Include="css\style.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\flaticon\backup.txt" />
+    <Content Include="fonts\flaticon\font\flaticon.css" />
+    <Content Include="fonts\flaticon\font\flaticon.html" />
+    <Content Include="fonts\flaticon\font\Flaticon.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\icomoon\icomoon.svg" />
+    <Content Include="fonts\ionicons\css\ionicons.min.css" />
+    <Content Include="fonts\ionicons\fonts\ionicons.svg" />
+    <Content Include="fonts\open-iconic\open-iconic.svg" />
+    <Content Include="fox\about.html" />
+    <Content Include="fox\blog-single.html" />
+    <Content Include="fox\blog.html" />
+    <Content Include="fox\contact.html" />
+    <Content Include="fox\courses.html" />
+    <Content Include="fox\css\ajax-loader.gif" />
+    <Content Include="fox\css\animate.css" />
+    <Content Include="fox\css\aos.css" />
+    <Content Include="fox\css\bootstrap.min.css" />
+    <Content Include="fox\css\bootstrap\bootstrap-grid.css" />
+    <Content Include="fox\css\bootstrap\bootstrap-reboot.css" />
+    <Content Include="fox\css\css\bootstrap-reboot.css" />
+    <Content Include="fox\css\css\mixins\_text-hide.css" />
+    <Content Include="fox\css\flaticon.css" />
+    <Content Include="fox\css\icomoon.css" />
+    <Content Include="fox\css\ionicons.min.css" />
+    <Content Include="fox\css\magnific-popup.css" />
+    <Content Include="fox\css\open-iconic-bootstrap.min.css" />
+    <Content Include="fox\css\owl.carousel.min.css" />
+    <Content Include="fox\css\owl.theme.default.min.css" />
+    <Content Include="fox\css\style.css" />
+    <Content Include="fox\fonts\flaticon\backup.txt" />
+    <Content Include="fox\fonts\flaticon\font\flaticon.css" />
+    <Content Include="fox\fonts\flaticon\font\flaticon.html" />
+    <Content Include="fox\fonts\flaticon\font\Flaticon.svg" />
+    <Content Include="fox\fonts\icomoon\icomoon.svg" />
+    <Content Include="fox\fonts\ionicons\css\ionicons.min.css" />
+    <Content Include="fox\fonts\ionicons\fonts\ionicons.svg" />
+    <Content Include="fox\fonts\open-iconic\open-iconic.svg" />
+    <Content Include="fox\images\about-2.jpg" />
+    <Content Include="fox\images\about.jpg" />
+    <Content Include="fox\images\bg_1.jpg" />
+    <Content Include="fox\images\bg_2.jpg" />
+    <Content Include="fox\images\bg_3.jpg" />
+    <Content Include="fox\images\bg_5.jpg" />
+    <Content Include="fox\images\course-1.jpg" />
+    <Content Include="fox\images\course-2.jpg" />
+    <Content Include="fox\images\course-3.jpg" />
+    <Content Include="fox\images\course-4.jpg" />
+    <Content Include="fox\images\course-5.jpg" />
+    <Content Include="fox\images\course-6.jpg" />
+    <Content Include="fox\images\course-7.jpg" />
+    <Content Include="fox\images\course-8.jpg" />
+    <Content Include="fox\images\image_1.jpg" />
+    <Content Include="fox\images\image_2.jpg" />
+    <Content Include="fox\images\image_3.jpg" />
+    <Content Include="fox\images\image_4.jpg" />
+    <Content Include="fox\images\image_5.jpg" />
+    <Content Include="fox\images\image_6.jpg" />
+    <Content Include="fox\images\loc.png" />
+    <Content Include="fox\images\person_1.jpg" />
+    <Content Include="fox\images\person_2.jpg" />
+    <Content Include="fox\images\person_3.jpg" />
+    <Content Include="fox\images\person_4.jpg" />
+    <Content Include="fox\images\staff-1.jpg" />
+    <Content Include="fox\images\staff-2.jpg" />
+    <Content Include="fox\images\staff-3.jpg" />
+    <Content Include="fox\images\staff-4.jpg" />
+    <Content Include="fox\images\teacher-1.jpg" />
+    <Content Include="fox\images\teacher-2.jpg" />
+    <Content Include="fox\images\teacher-3.jpg" />
+    <Content Include="fox\images\teacher-4.jpg" />
+    <Content Include="fox\images\teacher-5.jpg" />
+    <Content Include="fox\images\teacher-6.jpg" />
+    <Content Include="fox\images\teacher-7.jpg" />
+    <Content Include="fox\images\teacher-8.jpg" />
+    <Content Include="fox\index.html" />
+    <Content Include="fox\js\aos.js" />
+    <Content Include="fox\js\bootstrap.min.js" />
+    <Content Include="fox\js\google-map.js" />
+    <Content Include="fox\js\jquery-3.2.1.min.js" />
+    <Content Include="fox\js\jquery-migrate-3.0.1.min.js" />
+    <Content Include="fox\js\jquery.animateNumber.min.js" />
+    <Content Include="fox\js\jquery.easing.1.3.js" />
+    <Content Include="fox\js\jquery.magnific-popup.min.js" />
+    <Content Include="fox\js\jquery.min.js" />
+    <Content Include="fox\js\jquery.stellar.min.js" />
+    <Content Include="fox\js\jquery.waypoints.min.js" />
+    <Content Include="fox\js\main.js" />
+    <Content Include="fox\js\owl.carousel.min.js" />
+    <Content Include="fox\js\popper.min.js" />
+    <Content Include="fox\js\scrollax.min.js" />
+    <Content Include="fox\teacher.html" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="images\about-2.jpg" />
+    <Content Include="images\about.jpg" />
+    <Content Include="images\bg_1.jpg" />
+    <Content Include="images\bg_2.jpg" />
+    <Content Include="images\bg_3.jpg" />
+    <Content Include="images\bg_5.jpg" />
+    <Content Include="images\course-1.jpg" />
+    <Content Include="images\course-2.jpg" />
+    <Content Include="images\course-3.jpg" />
+    <Content Include="images\course-4.jpg" />
+    <Content Include="images\course-5.jpg" />
+    <Content Include="images\course-6.jpg" />
+    <Content Include="images\course-7.jpg" />
+    <Content Include="images\course-8.jpg" />
+    <Content Include="images\image_1.jpg" />
+    <Content Include="images\image_2.jpg" />
+    <Content Include="images\image_3.jpg" />
+    <Content Include="images\image_4.jpg" />
+    <Content Include="images\image_5.jpg" />
+    <Content Include="images\image_6.jpg" />
+    <Content Include="images\loc.png" />
+    <Content Include="images\person_1.jpg" />
+    <Content Include="images\person_2.jpg" />
+    <Content Include="images\person_3.jpg" />
+    <Content Include="images\person_4.jpg" />
+    <Content Include="images\staff-1.jpg" />
+    <Content Include="images\staff-2.jpg" />
+    <Content Include="images\staff-3.jpg" />
+    <Content Include="images\staff-4.jpg" />
+    <Content Include="images\teacher-1.jpg" />
+    <Content Include="images\teacher-2.jpg" />
+    <Content Include="images\teacher-3.jpg" />
+    <Content Include="images\teacher-4.jpg" />
+    <Content Include="images\teacher-5.jpg" />
+    <Content Include="images\teacher-6.jpg" />
+    <Content Include="images\teacher-7.jpg" />
+    <Content Include="images\teacher-8.jpg" />
+    <Content Include="js\aos.js" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\google-map.js" />
+    <Content Include="js\jquery-3.2.1.min.js" />
+    <Content Include="js\jquery-migrate-3.0.1.min.js" />
+    <Content Include="js\jquery.animateNumber.min.js" />
+    <Content Include="js\jquery.easing.1.3.js" />
+    <Content Include="js\jquery.magnific-popup.min.js" />
+    <Content Include="js\jquery.min.js" />
+    <Content Include="js\jquery.stellar.min.js" />
+    <Content Include="js\jquery.waypoints.min.js" />
+    <Content Include="js\main.js" />
+    <Content Include="js\owl.carousel.min.js" />
+    <Content Include="js\popper.min.js" />
+    <Content Include="js\scrollax.min.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker.min.js" />
+    <Content Include="Scripts\bootstrap-material-design.min.js" />
+    <Content Include="Scripts\bootstrap-selectpicker.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\Admin\material-dashboard.css.map" />
+    <Content Include="css\.DS_Store" />
+    <Content Include="css\bootstrap\.DS_Store" />
+    <Content Include="css\css\.DS_Store" />
+    <Content Include="fonts\.DS_Store" />
+    <Content Include="fonts\flaticon\.DS_Store" />
+    <Content Include="fonts\flaticon\font\.DS_Store" />
+    <Content Include="fonts\flaticon\font\Flaticon.eot" />
+    <Content Include="fonts\flaticon\font\Flaticon.ttf" />
+    <Content Include="fonts\flaticon\font\Flaticon.woff" />
+    <Content Include="fonts\flaticon\font\Flaticon.woff2" />
+    <Content Include="fonts\flaticon\font\_flaticon.scss" />
+    <Content Include="fonts\flaticon\license\license.pdf" />
+    <Content Include="fonts\icomoon\icomoon.eot" />
+    <Content Include="fonts\icomoon\icomoon.ttf" />
+    <Content Include="fonts\icomoon\icomoon.woff" />
+    <Content Include="fonts\ionicons\css\_ionicons.scss" />
+    <Content Include="fonts\ionicons\fonts\.DS_Store" />
+    <Content Include="fonts\ionicons\fonts\ionicons.eot" />
+    <Content Include="fonts\ionicons\fonts\ionicons.ttf" />
+    <Content Include="fonts\ionicons\fonts\ionicons.woff" />
+    <Content Include="fonts\ionicons\fonts\ionicons.woff2" />
+    <Content Include="fonts\open-iconic\open-iconic.eot" />
+    <Content Include="fonts\open-iconic\open-iconic.otf" />
+    <Content Include="fonts\open-iconic\open-iconic.ttf" />
+    <Content Include="fonts\open-iconic\open-iconic.woff" />
+    <Content Include="fox\.DS_Store" />
+    <Content Include="fox\css\.DS_Store" />
+    <Content Include="fox\css\bootstrap\.DS_Store" />
+    <Content Include="fox\css\css\.DS_Store" />
+    <Content Include="fox\fonts\.DS_Store" />
+    <Content Include="fox\fonts\flaticon\.DS_Store" />
+    <Content Include="fox\fonts\flaticon\font\.DS_Store" />
+    <Content Include="fox\fonts\flaticon\font\Flaticon.eot" />
+    <Content Include="fox\fonts\flaticon\font\Flaticon.ttf" />
+    <Content Include="fox\fonts\flaticon\font\Flaticon.woff" />
+    <Content Include="fox\fonts\flaticon\font\Flaticon.woff2" />
+    <Content Include="fox\fonts\flaticon\font\_flaticon.scss" />
+    <Content Include="fox\fonts\flaticon\license\license.pdf" />
+    <Content Include="fox\fonts\icomoon\icomoon.eot" />
+    <Content Include="fox\fonts\icomoon\icomoon.ttf" />
+    <Content Include="fox\fonts\icomoon\icomoon.woff" />
+    <Content Include="fox\fonts\ionicons\css\_ionicons.scss" />
+    <Content Include="fox\fonts\ionicons\fonts\.DS_Store" />
+    <Content Include="fox\fonts\ionicons\fonts\ionicons.eot" />
+    <Content Include="fox\fonts\ionicons\fonts\ionicons.ttf" />
+    <Content Include="fox\fonts\ionicons\fonts\ionicons.woff" />
+    <Content Include="fox\fonts\ionicons\fonts\ionicons.woff2" />
+    <Content Include="fox\fonts\open-iconic\open-iconic.eot" />
+    <Content Include="fox\fonts\open-iconic\open-iconic.otf" />
+    <Content Include="fox\fonts\open-iconic\open-iconic.ttf" />
+    <Content Include="fox\fonts\open-iconic\open-iconic.woff" />
+    <Content Include="fox\images\.DS_Store" />
+    <Content Include="fox\js\.DS_Store" />
+    <Content Include="fox\prepros-6.config" />
+    <Content Include="fox\scss\.DS_Store" />
+    <Content Include="fox\scss\bootstrap\.DS_Store" />
+    <Content Include="fox\scss\bootstrap\bootstrap-grid.scss" />
+    <Content Include="fox\scss\bootstrap\bootstrap-reboot.scss" />
+    <Content Include="fox\scss\bootstrap\bootstrap.scss" />
+    <Content Include="fox\scss\bootstrap\mixins\_alert.scss" />
+    <Content Include="fox\scss\bootstrap\mixins\_background-variant.scss" />
+    <Content Include="fox\scss\bootstrap\mixins\_badge.scss" />
+    <Content Include="fox\scss\bootstrap\mixins\_border-radius.scss" />
+    <Content Include="fox\scss\bootstrap\mixins\_box-shadow.scss" />
+    <Content Include="fox\scss\bootstrap\mixins\_breakpoints.scss" />
+    <Content Include="fox\scss\bootstrap\mixins\_buttons.scss" />
+    <Content Include="fox\scss\bootstrap\mixins\_caret.scss" />
+    <Content Include="fox\scss\bootstrap\mixins\_clearfix.scss" />
+    <Content Include="fox\scss\bootstrap\mixins\_deprecate.scss" />
+    <Content Include="fox\scss\bootstrap\mixins\_float.scss" />
+    <Content Include="fox\scss\bootstrap\mixins\_forms.scss" />
+    <Content Include="fox\scss\bootstrap\mixins\_gradients.scss" />
+    <Content Include="fox\scss\bootstrap\mixins\_grid-framework.scss" />
+    <Content Include="fox\scss\bootstrap\mixins\_grid.scss" />
+    <Content Include="fox\scss\bootstrap\mixins\_hover.scss" />
+    <Content Include="fox\scss\bootstrap\mixins\_image.scss" />
+    <Content Include="fox\scss\bootstrap\mixins\_list-group.scss" />
+    <Content Include="fox\scss\bootstrap\mixins\_lists.scss" />
+    <Content Include="fox\scss\bootstrap\mixins\_nav-divider.scss" />
+    <Content Include="fox\scss\bootstrap\mixins\_pagination.scss" />
+    <Content Include="fox\scss\bootstrap\mixins\_reset-text.scss" />
+    <Content Include="fox\scss\bootstrap\mixins\_resize.scss" />
+    <Content Include="fox\scss\bootstrap\mixins\_screen-reader.scss" />
+    <Content Include="fox\scss\bootstrap\mixins\_size.scss" />
+    <Content Include="fox\scss\bootstrap\mixins\_table-row.scss" />
+    <Content Include="fox\scss\bootstrap\mixins\_text-emphasis.scss" />
+    <Content Include="fox\scss\bootstrap\mixins\_text-hide.scss" />
+    <Content Include="fox\scss\bootstrap\mixins\_text-truncate.scss" />
+    <Content Include="fox\scss\bootstrap\mixins\_transition.scss" />
+    <Content Include="fox\scss\bootstrap\mixins\_visibility.scss" />
+    <Content Include="fox\scss\bootstrap\utilities\_align.scss" />
+    <Content Include="fox\scss\bootstrap\utilities\_background.scss" />
+    <Content Include="fox\scss\bootstrap\utilities\_borders.scss" />
+    <Content Include="fox\scss\bootstrap\utilities\_clearfix.scss" />
+    <Content Include="fox\scss\bootstrap\utilities\_display.scss" />
+    <Content Include="fox\scss\bootstrap\utilities\_embed.scss" />
+    <Content Include="fox\scss\bootstrap\utilities\_flex.scss" />
+    <Content Include="fox\scss\bootstrap\utilities\_float.scss" />
+    <Content Include="fox\scss\bootstrap\utilities\_overflow.scss" />
+    <Content Include="fox\scss\bootstrap\utilities\_position.scss" />
+    <Content Include="fox\scss\bootstrap\utilities\_screenreaders.scss" />
+    <Content Include="fox\scss\bootstrap\utilities\_shadows.scss" />
+    <Content Include="fox\scss\bootstrap\utilities\_sizing.scss" />
+    <Content Include="fox\scss\bootstrap\utilities\_spacing.scss" />
+    <Content Include="fox\scss\bootstrap\utilities\_stretched-link.scss" />
+    <Content Include="fox\scss\bootstrap\utilities\_text.scss" />
+    <Content Include="fox\scss\bootstrap\utilities\_visibility.scss" />
+    <Content Include="fox\scss\bootstrap\vendor\_rfs.scss" />
+    <Content Include="fox\scss\bootstrap\_alert.scss" />
+    <Content Include="fox\scss\bootstrap\_badge.scss" />
+    <Content Include="fox\scss\bootstrap\_breadcrumb.scss" />
+    <Content Include="fox\scss\bootstrap\_button-group.scss" />
+    <Content Include="fox\scss\bootstrap\_buttons.scss" />
+    <Content Include="fox\scss\bootstrap\_card.scss" />
+    <Content Include="fox\scss\bootstrap\_carousel.scss" />
+    <Content Include="fox\scss\bootstrap\_close.scss" />
+    <Content Include="fox\scss\bootstrap\_code.scss" />
+    <Content Include="fox\scss\bootstrap\_custom-forms.scss" />
+    <Content Include="fox\scss\bootstrap\_dropdown.scss" />
+    <Content Include="fox\scss\bootstrap\_forms.scss" />
+    <Content Include="fox\scss\bootstrap\_functions.scss" />
+    <Content Include="fox\scss\bootstrap\_grid.scss" />
+    <Content Include="fox\scss\bootstrap\_images.scss" />
+    <Content Include="fox\scss\bootstrap\_input-group.scss" />
+    <Content Include="fox\scss\bootstrap\_jumbotron.scss" />
+    <Content Include="fox\scss\bootstrap\_list-group.scss" />
+    <Content Include="fox\scss\bootstrap\_media.scss" />
+    <Content Include="fox\scss\bootstrap\_mixins.scss" />
+    <Content Include="fox\scss\bootstrap\_modal.scss" />
+    <Content Include="fox\scss\bootstrap\_nav.scss" />
+    <Content Include="fox\scss\bootstrap\_navbar.scss" />
+    <Content Include="fox\scss\bootstrap\_pagination.scss" />
+    <Content Include="fox\scss\bootstrap\_popover.scss" />
+    <Content Include="fox\scss\bootstrap\_print.scss" />
+    <Content Include="fox\scss\bootstrap\_progress.scss" />
+    <Content Include="fox\scss\bootstrap\_reboot.scss" />
+    <Content Include="fox\scss\bootstrap\_root.scss" />
+    <Content Include="fox\scss\bootstrap\_spinners.scss" />
+    <Content Include="fox\scss\bootstrap\_tables.scss" />
+    <Content Include="fox\scss\bootstrap\_toasts.scss" />
+    <Content Include="fox\scss\bootstrap\_tooltip.scss" />
+    <Content Include="fox\scss\bootstrap\_transitions.scss" />
+    <Content Include="fox\scss\bootstrap\_type.scss" />
+    <Content Include="fox\scss\bootstrap\_utilities.scss" />
+    <Content Include="fox\scss\bootstrap\_variables.scss" />
+    <Content Include="fox\scss\style.scss" />
+    <Content Include="images\.DS_Store" />
+    <Content Include="__MACOSX\fox\._contact.html" />
+    <Content Include="__MACOSX\fox\._index.html" />
+    <Content Include="__MACOSX\fox\css\._ajax-loader.gif" />
+    <Content Include="__MACOSX\fox\css\._animate.css" />
+    <Content Include="__MACOSX\fox\css\._aos.css" />
+    <Content Include="__MACOSX\fox\css\._bootstrap.min.css" />
+    <Content Include="__MACOSX\fox\css\._flaticon.css" />
+    <Content Include="__MACOSX\fox\css\._icomoon.css" />
+    <Content Include="__MACOSX\fox\css\._ionicons.min.css" />
+    <Content Include="__MACOSX\fox\css\._magnific-popup.css" />
+    <Content Include="__MACOSX\fox\css\._open-iconic-bootstrap.min.css" />
+    <Content Include="__MACOSX\fox\css\._owl.carousel.min.css" />
+    <Content Include="__MACOSX\fox\css\._owl.theme.default.min.css" />
+    <Content Include="__MACOSX\fox\css\._style.css" />
+    <Content Include="__MACOSX\fox\css\css\._bootstrap-reboot.css" />
+    <Content Include="__MACOSX\fox\css\css\mixins\.__text-hide.css" />
+    <Content Include="__MACOSX\fox\fonts\flaticon\._backup.txt" />
+    <Content Include="__MACOSX\fox\fonts\flaticon\font\._flaticon.css" />
+    <Content Include="__MACOSX\fox\fonts\flaticon\font\._flaticon.html" />
+    <Content Include="__MACOSX\fox\fonts\flaticon\font\._Flaticon.svg" />
+    <Content Include="__MACOSX\fox\fonts\icomoon\._icomoon.svg" />
+    <Content Include="__MACOSX\fox\fonts\ionicons\css\._ionicons.min.css" />
+    <Content Include="__MACOSX\fox\fonts\ionicons\fonts\._ionicons.svg" />
+    <Content Include="__MACOSX\fox\fonts\open-iconic\._open-iconic.svg" />
+    <Content Include="__MACOSX\fox\images\._about-2.jpg" />
+    <Content Include="__MACOSX\fox\images\._about.jpg" />
+    <Content Include="__MACOSX\fox\images\._bg_1.jpg" />
+    <Content Include="__MACOSX\fox\images\._bg_2.jpg" />
+    <Content Include="__MACOSX\fox\images\._bg_3.jpg" />
+    <Content Include="__MACOSX\fox\images\._bg_5.jpg" />
+    <Content Include="__MACOSX\fox\images\._course-1.jpg" />
+    <Content Include="__MACOSX\fox\images\._course-2.jpg" />
+    <Content Include="__MACOSX\fox\images\._course-3.jpg" />
+    <Content Include="__MACOSX\fox\images\._course-4.jpg" />
+    <Content Include="__MACOSX\fox\images\._course-5.jpg" />
+    <Content Include="__MACOSX\fox\images\._course-6.jpg" />
+    <Content Include="__MACOSX\fox\images\._course-7.jpg" />
+    <Content Include="__MACOSX\fox\images\._course-8.jpg" />
+    <Content Include="__MACOSX\fox\images\._image_1.jpg" />
+    <Content Include="__MACOSX\fox\images\._image_2.jpg" />
+    <Content Include="__MACOSX\fox\images\._image_3.jpg" />
+    <Content Include="__MACOSX\fox\images\._image_4.jpg" />
+    <Content Include="__MACOSX\fox\images\._image_5.jpg" />
+    <Content Include="__MACOSX\fox\images\._image_6.jpg" />
+    <Content Include="__MACOSX\fox\images\._loc.png" />
+    <Content Include="__MACOSX\fox\images\._person_1.jpg" />
+    <Content Include="__MACOSX\fox\images\._person_2.jpg" />
+    <Content Include="__MACOSX\fox\images\._person_3.jpg" />
+    <Content Include="__MACOSX\fox\images\._person_4.jpg" />
+    <Content Include="__MACOSX\fox\images\._staff-1.jpg" />
+    <Content Include="__MACOSX\fox\images\._staff-2.jpg" />
+    <Content Include="__MACOSX\fox\images\._staff-3.jpg" />
+    <Content Include="__MACOSX\fox\images\._staff-4.jpg" />
+    <Content Include="__MACOSX\fox\images\._teacher-1.jpg" />
+    <Content Include="__MACOSX\fox\images\._teacher-2.jpg" />
+    <Content Include="__MACOSX\fox\images\._teacher-3.jpg" />
+    <Content Include="__MACOSX\fox\images\._teacher-4.jpg" />
+    <Content Include="__MACOSX\fox\images\._teacher-5.jpg" />
+    <Content Include="__MACOSX\fox\images\._teacher-6.jpg" />
+    <Content Include="__MACOSX\fox\images\._teacher-7.jpg" />
+    <Content Include="__MACOSX\fox\images\._teacher-8.jpg" />
+    <Content Include="__MACOSX\fox\js\._aos.js" />
+    <Content Include="__MACOSX\fox\js\._bootstrap.min.js" />
+    <Content Include="__MACOSX\fox\js\._google-map.js" />
+    <Content Include="__MACOSX\fox\js\._jquery-3.2.1.min.js" />
+    <Content Include="__MACOSX\fox\js\._jquery-migrate-3.0.1.min.js" />
+    <Content Include="__MACOSX\fox\js\._jquery.animateNumber.min.js" />
+    <Content Include="__MACOSX\fox\js\._jquery.easing.1.3.js" />
+    <Content Include="__MACOSX\fox\js\._jquery.magnific-popup.min.js" />
+    <Content Include="__MACOSX\fox\js\._jquery.min.js" />
+    <Content Include="__MACOSX\fox\js\._jquery.stellar.min.js" />
+    <Content Include="__MACOSX\fox\js\._jquery.waypoints.min.js" />
+    <Content Include="__MACOSX\fox\js\._main.js" />
+    <Content Include="__MACOSX\fox\js\._owl.carousel.min.js" />
+    <Content Include="__MACOSX\fox\js\._popper.min.js" />
+    <Content Include="__MACOSX\fox\js\._scrollax.min.js" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.dataTables.min.js" />
+    <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\material-dashboard.js" />
+    <Content Include="Scripts\material-dashboard.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\moment.min.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\Colleges.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Scripts\material-dashboard.js.map" />
+    <Content Include="Views\Admin\AddEdit.cshtml" />
+    <Content Include="scss\.DS_Store" />
+    <Content Include="scss\bootstrap\.DS_Store" />
+    <Content Include="scss\bootstrap\bootstrap-grid.scss" />
+    <Content Include="scss\bootstrap\bootstrap-reboot.scss" />
+    <Content Include="scss\bootstrap\bootstrap.scss" />
+    <Content Include="scss\bootstrap\mixins\_alert.scss" />
+    <Content Include="scss\bootstrap\mixins\_background-variant.scss" />
+    <Content Include="scss\bootstrap\mixins\_badge.scss" />
+    <Content Include="scss\bootstrap\mixins\_border-radius.scss" />
+    <Content Include="scss\bootstrap\mixins\_box-shadow.scss" />
+    <Content Include="scss\bootstrap\mixins\_breakpoints.scss" />
+    <Content Include="scss\bootstrap\mixins\_buttons.scss" />
+    <Content Include="scss\bootstrap\mixins\_caret.scss" />
+    <Content Include="scss\bootstrap\mixins\_clearfix.scss" />
+    <Content Include="scss\bootstrap\mixins\_deprecate.scss" />
+    <Content Include="scss\bootstrap\mixins\_float.scss" />
+    <Content Include="scss\bootstrap\mixins\_forms.scss" />
+    <Content Include="scss\bootstrap\mixins\_gradients.scss" />
+    <Content Include="scss\bootstrap\mixins\_grid-framework.scss" />
+    <Content Include="scss\bootstrap\mixins\_grid.scss" />
+    <Content Include="scss\bootstrap\mixins\_hover.scss" />
+    <Content Include="scss\bootstrap\mixins\_image.scss" />
+    <Content Include="scss\bootstrap\mixins\_list-group.scss" />
+    <Content Include="scss\bootstrap\mixins\_lists.scss" />
+    <Content Include="scss\bootstrap\mixins\_nav-divider.scss" />
+    <Content Include="scss\bootstrap\mixins\_pagination.scss" />
+    <Content Include="scss\bootstrap\mixins\_reset-text.scss" />
+    <Content Include="scss\bootstrap\mixins\_resize.scss" />
+    <Content Include="scss\bootstrap\mixins\_screen-reader.scss" />
+    <Content Include="scss\bootstrap\mixins\_size.scss" />
+    <Content Include="scss\bootstrap\mixins\_table-row.scss" />
+    <Content Include="scss\bootstrap\mixins\_text-emphasis.scss" />
+    <Content Include="scss\bootstrap\mixins\_text-hide.scss" />
+    <Content Include="scss\bootstrap\mixins\_text-truncate.scss" />
+    <Content Include="scss\bootstrap\mixins\_transition.scss" />
+    <Content Include="scss\bootstrap\mixins\_visibility.scss" />
+    <Content Include="scss\bootstrap\utilities\_align.scss" />
+    <Content Include="scss\bootstrap\utilities\_background.scss" />
+    <Content Include="scss\bootstrap\utilities\_borders.scss" />
+    <Content Include="scss\bootstrap\utilities\_clearfix.scss" />
+    <Content Include="scss\bootstrap\utilities\_display.scss" />
+    <Content Include="scss\bootstrap\utilities\_embed.scss" />
+    <Content Include="scss\bootstrap\utilities\_flex.scss" />
+    <Content Include="scss\bootstrap\utilities\_float.scss" />
+    <Content Include="scss\bootstrap\utilities\_overflow.scss" />
+    <Content Include="scss\bootstrap\utilities\_position.scss" />
+    <Content Include="scss\bootstrap\utilities\_screenreaders.scss" />
+    <Content Include="scss\bootstrap\utilities\_shadows.scss" />
+    <Content Include="scss\bootstrap\utilities\_sizing.scss" />
+    <Content Include="scss\bootstrap\utilities\_spacing.scss" />
+    <Content Include="scss\bootstrap\utilities\_stretched-link.scss" />
+    <Content Include="scss\bootstrap\utilities\_text.scss" />
+    <Content Include="scss\bootstrap\utilities\_visibility.scss" />
+    <Content Include="scss\bootstrap\vendor\_rfs.scss" />
+    <Content Include="scss\bootstrap\_alert.scss" />
+    <Content Include="scss\bootstrap\_badge.scss" />
+    <Content Include="scss\bootstrap\_breadcrumb.scss" />
+    <Content Include="scss\bootstrap\_button-group.scss" />
+    <Content Include="scss\bootstrap\_buttons.scss" />
+    <Content Include="scss\bootstrap\_card.scss" />
+    <Content Include="scss\bootstrap\_carousel.scss" />
+    <Content Include="scss\bootstrap\_close.scss" />
+    <Content Include="scss\bootstrap\_code.scss" />
+    <Content Include="scss\bootstrap\_custom-forms.scss" />
+    <Content Include="scss\bootstrap\_dropdown.scss" />
+    <Content Include="scss\bootstrap\_forms.scss" />
+    <Content Include="scss\bootstrap\_functions.scss" />
+    <Content Include="scss\bootstrap\_grid.scss" />
+    <Content Include="scss\bootstrap\_images.scss" />
+    <Content Include="scss\bootstrap\_input-group.scss" />
+    <Content Include="scss\bootstrap\_jumbotron.scss" />
+    <Content Include="scss\bootstrap\_list-group.scss" />
+    <Content Include="scss\bootstrap\_media.scss" />
+    <Content Include="scss\bootstrap\_mixins.scss" />
+    <Content Include="scss\bootstrap\_modal.scss" />
+    <Content Include="scss\bootstrap\_nav.scss" />
+    <Content Include="scss\bootstrap\_navbar.scss" />
+    <Content Include="scss\bootstrap\_pagination.scss" />
+    <Content Include="scss\bootstrap\_popover.scss" />
+    <Content Include="scss\bootstrap\_print.scss" />
+    <Content Include="scss\bootstrap\_progress.scss" />
+    <Content Include="scss\bootstrap\_reboot.scss" />
+    <Content Include="scss\bootstrap\_root.scss" />
+    <Content Include="scss\bootstrap\_spinners.scss" />
+    <Content Include="scss\bootstrap\_tables.scss" />
+    <Content Include="scss\bootstrap\_toasts.scss" />
+    <Content Include="scss\bootstrap\_tooltip.scss" />
+    <Content Include="scss\bootstrap\_transitions.scss" />
+    <Content Include="scss\bootstrap\_type.scss" />
+    <Content Include="scss\bootstrap\_utilities.scss" />
+    <Content Include="scss\bootstrap\_variables.scss" />
+    <Content Include="scss\style.scss" />
+    <Content Include="__MACOSX\._fox" />
+    <Content Include="__MACOSX\fox\._.DS_Store" />
+    <Content Include="__MACOSX\fox\._css" />
+    <Content Include="__MACOSX\fox\._fonts" />
+    <Content Include="__MACOSX\fox\._images" />
+    <Content Include="__MACOSX\fox\._js" />
+    <Content Include="__MACOSX\fox\._scss" />
+    <Content Include="__MACOSX\fox\css\._.DS_Store" />
+    <Content Include="__MACOSX\fox\css\._css" />
+    <Content Include="__MACOSX\fox\css\bootstrap\._.DS_Store" />
+    <Content Include="__MACOSX\fox\css\css\._.DS_Store" />
+    <Content Include="__MACOSX\fox\css\css\._mixins" />
+    <Content Include="__MACOSX\fox\fonts\._.DS_Store" />
+    <Content Include="__MACOSX\fox\fonts\._flaticon" />
+    <Content Include="__MACOSX\fox\fonts\._icomoon" />
+    <Content Include="__MACOSX\fox\fonts\._ionicons" />
+    <Content Include="__MACOSX\fox\fonts\._open-iconic" />
+    <Content Include="__MACOSX\fox\fonts\flaticon\._.DS_Store" />
+    <Content Include="__MACOSX\fox\fonts\flaticon\._font" />
+    <Content Include="__MACOSX\fox\fonts\flaticon\._license" />
+    <Content Include="__MACOSX\fox\fonts\flaticon\font\._.DS_Store" />
+    <Content Include="__MACOSX\fox\fonts\flaticon\font\._Flaticon.eot" />
+    <Content Include="__MACOSX\fox\fonts\flaticon\font\._Flaticon.ttf" />
+    <Content Include="__MACOSX\fox\fonts\flaticon\font\._Flaticon.woff" />
+    <Content Include="__MACOSX\fox\fonts\flaticon\font\._Flaticon.woff2" />
+    <Content Include="__MACOSX\fox\fonts\flaticon\font\.__flaticon.scss" />
+    <Content Include="__MACOSX\fox\fonts\flaticon\license\._license.pdf" />
+    <Content Include="__MACOSX\fox\fonts\icomoon\._icomoon.eot" />
+    <Content Include="__MACOSX\fox\fonts\icomoon\._icomoon.ttf" />
+    <Content Include="__MACOSX\fox\fonts\icomoon\._icomoon.woff" />
+    <Content Include="__MACOSX\fox\fonts\ionicons\._css" />
+    <Content Include="__MACOSX\fox\fonts\ionicons\._fonts" />
+    <Content Include="__MACOSX\fox\fonts\ionicons\css\.__ionicons.scss" />
+    <Content Include="__MACOSX\fox\fonts\ionicons\fonts\._.DS_Store" />
+    <Content Include="__MACOSX\fox\fonts\ionicons\fonts\._ionicons.eot" />
+    <Content Include="__MACOSX\fox\fonts\ionicons\fonts\._ionicons.ttf" />
+    <Content Include="__MACOSX\fox\fonts\ionicons\fonts\._ionicons.woff" />
+    <Content Include="__MACOSX\fox\fonts\ionicons\fonts\._ionicons.woff2" />
+    <Content Include="__MACOSX\fox\fonts\open-iconic\._open-iconic.eot" />
+    <Content Include="__MACOSX\fox\fonts\open-iconic\._open-iconic.otf" />
+    <Content Include="__MACOSX\fox\fonts\open-iconic\._open-iconic.ttf" />
+    <Content Include="__MACOSX\fox\fonts\open-iconic\._open-iconic.woff" />
+    <Content Include="__MACOSX\fox\images\._.DS_Store" />
+    <Content Include="__MACOSX\fox\js\._.DS_Store" />
+    <Content Include="__MACOSX\fox\scss\._.DS_Store" />
+    <Content Include="__MACOSX\fox\scss\._bootstrap" />
+    <Content Include="__MACOSX\fox\scss\._style.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\._.DS_Store" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\._bootstrap-grid.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\._bootstrap-reboot.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\._bootstrap.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\._mixins" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\._utilities" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\._vendor" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\.__alert.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\.__badge.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\.__breadcrumb.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\.__button-group.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\.__buttons.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\.__card.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\.__carousel.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\.__close.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\.__code.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\.__custom-forms.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\.__dropdown.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\.__forms.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\.__functions.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\.__grid.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\.__images.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\.__input-group.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\.__jumbotron.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\.__list-group.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\.__media.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\.__mixins.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\.__modal.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\.__nav.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\.__navbar.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\.__pagination.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\.__popover.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\.__print.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\.__progress.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\.__reboot.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\.__root.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\.__spinners.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\.__tables.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\.__toasts.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\.__tooltip.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\.__transitions.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\.__type.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\.__utilities.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\.__variables.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\mixins\.__alert.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\mixins\.__background-variant.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\mixins\.__badge.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\mixins\.__border-radius.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\mixins\.__box-shadow.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\mixins\.__breakpoints.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\mixins\.__buttons.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\mixins\.__caret.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\mixins\.__clearfix.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\mixins\.__deprecate.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\mixins\.__float.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\mixins\.__forms.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\mixins\.__gradients.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\mixins\.__grid-framework.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\mixins\.__grid.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\mixins\.__hover.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\mixins\.__image.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\mixins\.__list-group.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\mixins\.__lists.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\mixins\.__nav-divider.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\mixins\.__pagination.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\mixins\.__reset-text.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\mixins\.__resize.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\mixins\.__screen-reader.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\mixins\.__size.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\mixins\.__table-row.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\mixins\.__text-emphasis.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\mixins\.__text-hide.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\mixins\.__text-truncate.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\mixins\.__transition.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\mixins\.__visibility.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\utilities\.__align.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\utilities\.__background.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\utilities\.__borders.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\utilities\.__clearfix.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\utilities\.__display.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\utilities\.__embed.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\utilities\.__flex.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\utilities\.__float.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\utilities\.__overflow.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\utilities\.__position.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\utilities\.__screenreaders.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\utilities\.__shadows.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\utilities\.__sizing.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\utilities\.__spacing.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\utilities\.__stretched-link.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\utilities\.__text.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\utilities\.__visibility.scss" />
+    <Content Include="__MACOSX\fox\scss\bootstrap\vendor\.__rfs.scss" />
+    <Content Include="Views\Student\Index.cshtml" />
+    <Content Include="Views\Admin\Student.cshtml" />
+    <Content Include="Views\Admin\AddEditStudent.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Colleges.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>30631</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44374/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

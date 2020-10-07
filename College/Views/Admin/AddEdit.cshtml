@@ -1,0 +1,129 @@
+﻿@model College.Models.CollegeModel
+@{
+    ViewBag.Title = "AddEdit";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<form method="post" id="form-add-colloge">
+    @Html.HiddenFor(d => d.CollegeID)
+
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header card-header-primary">
+                            @if (Model.CollegeID > 1)
+                            {
+                                <h4 class="card-title">Update College</h4>
+                            }
+                            else
+                            {
+                                <h4 class="card-title">Add New College</h4>
+                            }
+                        </div>
+                        <div class="card-body">
+
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Name</label>
+                                        @Html.TextBoxFor(d => d.CollegeName, new { id = "txtCollegeName", @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Email address</label>
+                                        @Html.TextBoxFor(d => d.Email, new { id = "txtEmail", @class = "form-control" })
+
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Password</label>
+                                        @Html.PasswordFor(d => d.Password, new { id = "txtPassword", @class = "form-control" })
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Address</label>
+                                        @Html.TextBoxFor(d => d.Address, new { id = "txtAddress", @class = "form-control" })
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">City</label>
+                                        @Html.TextBoxFor(d => d.City, new { id = "txtCity", @class = "form-control" })
+
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">State</label>
+                                        @Html.TextBoxFor(d => d.State, new { id = "txtState", @class = "form-control" })
+
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Country</label>
+                                        @Html.TextBoxFor(d => d.Country, new { id = "txtCountry", @class = "form-control" })
+
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Contact</label>
+                                        @Html.TextBoxFor(d => d.ContactNumber, new { id = "txtContact", @class = "form-control" })
+
+                                    </div>
+                                </div>
+                            </div>
+                            @if (Model.CollegeID > 1)
+                            {
+                                <button type="button" class="btn btn-primary pull-right " onclick="SaveCollege()">Update</button>
+                            }
+                            else
+                            {
+                                <button type="button" class="btn btn-primary pull-right " onclick="SaveCollege()">Save</button>
+                            }
+                            <div class="clearfix"></div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    function SaveCollege() {
+        var CollogeName = $("#txtCollegeName").val();
+        var Email = $("#txtEmail").val();
+        var Password = $("#txtPassword").val();
+        var isValied = true;
+        if (CollogeName == "") {
+            $("#divErrorMsg").text("Please enter name").addClass("alert alert-danger");
+            isValied = false;
+        }
+        else if (Email == "") {
+            $("#divErrorMsg").text("Please enter email").addClass("alert alert-danger");
+            isValied = false;
+        }
+        else if (Password == "") {
+            $("#divErrorMsg").text("Please enter password").addClass("alert alert-danger");
+            isValied = false;
+        }
+        if (isValied) {
+            $("#form-add-colloge").submit();
+        }
+
+    }
+
+</script>
+

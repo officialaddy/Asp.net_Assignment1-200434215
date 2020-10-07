@@ -1,0 +1,104 @@
+﻿@model College.Models.StudentModel
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title">Students</h4>
+
+                    </div>
+                    <div class="card-body">
+                        <div class="pull-right">
+                            <a class="btn btn-primary " href="/Admin/AddEditStudent?CollegeID=@Model.CollegeID" style="    color: white;">Add new Student</a>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <tr>
+                                        <th>
+                                            ID
+                                        </th>
+                                        <th>
+                                            Name
+                                        </th>
+                                        <th>
+                                            Gender
+                                        </th>
+                                        <th>
+                                            DOB
+                                        </th>
+                                        <th>
+                                            Address
+                                        </th>
+                                        <th>
+                                            Email
+                                        </th>
+                                        <th>
+                                            Contact
+                                        </th>
+                                        <th>
+                                            College
+                                        </th>
+                                        <th>
+                                            Actions
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Model.studentList.Count > 0)
+                                    {
+                                        foreach (var item in Model.studentList)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @item.StudentID
+                                                </td>
+                                                <td>
+                                                    @item.StudentName
+                                                </td>
+                                                <td>
+                                                    @item.Gender
+                                                </td>
+                                                <td>
+                                                    @item.DateOfBirth
+                                                </td>
+                                                <td>
+                                                    @item.Address
+                                                </td>
+                                                <td>
+                                                    @item.Email
+                                                </td>
+                                                <td>
+                                                    @item.ContactNumber
+                                                </td>
+                                                <td>
+                                                    @item.CollegeName
+                                                </td>
+                                                <td>
+                                                    <a class="btn btn-primary " href="/Admin/AddEditStudent?id=@item.StudentID&CollegeID=@item.CollegeID" style="color: white;">Edit</a>
+                                                    <a class="btn btn-primary " href="/Admin/DeleteStudent/?id=@item.StudentID&CollegeID=@item.CollegeID" style="color: white;">Delete</a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <tr><td colspan="10">no record exist</td></tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

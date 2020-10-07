@@ -1,0 +1,169 @@
+﻿@model College.Models.StudentModel
+@{
+    ViewBag.Title = "AddEditStudent";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form method="post" id="form-add-student">
+    @Html.HiddenFor(d => d.CollegeID)
+    @Html.HiddenFor(d => d.StudentID)
+
+
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header card-header-primary">
+                            @if (Model.StudentID > 0)
+                            {
+                            <h4 class="card-title">Update Student</h4>
+                            }
+                            else
+                            {
+                        <h4 class="card-title">Add New Student</h4>
+                            }
+                        </div>
+                        <div class="card-body">
+
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Name</label>
+                                        @Html.TextBoxFor(d => d.StudentName, new { id = "txtStudentName", @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Email address</label>
+                                        @Html.TextBoxFor(d => d.Email, new { id = "txtEmail", @class = "form-control" })
+
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Gender</label>
+                                        @Html.DropDownListFor(d => d.Gender, Model.genderList, "Select", new { id = "ddlGender", @class = "form-control" })
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Address</label>
+                                        @Html.TextBoxFor(d => d.Address, new { id = "txtAddress", @class = "form-control" })
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Date of Birth</label>
+                                        @Html.TextBoxFor(d => d.DateOfBirth, new { id = "txtDateOfBirth", @class = "form-control txtDateOfBirth" })
+
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Contact</label>
+                                        @Html.TextBoxFor(d => d.ContactNumber, new { id = "txtContact", @class = "form-control" })
+
+                                    </div>
+                                </div>
+                                @if (Model.Role == 1 && Model.CollegeID == null)
+                                {
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating">College</label>
+                                            @Html.DropDownListFor(d => d.CollegeID, Model.collegeList, "Select", new { id = "ddlCollege", @class = "form-control" })
+
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                            @if (Model.StudentID > 0)
+                            {
+                                <button type="button" class="btn btn-primary pull-right " onclick="SaveStudent()">Update</button>
+                            }
+                            else
+                            {
+                                <button type="button" class="btn btn-primary pull-right " onclick="SaveStudent()">Save</button>
+                            }
+                            <div class="clearfix"></div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    $(document).ready(function () {       
+        $("#ddlCollege").change(function () {
+            debugger;
+            if ($(this).val() != "") {
+                $("#CollegeID").val($(this).val());
+            }
+            else {
+                $("#CollegeID").val('');
+            }
+        })
+    })
+
+    function SaveStudent() {
+        var StudentName = $("#txtStudentName").val();
+        var Email = $("#txtEmail").val();
+        var Gender = $("#ddlGender").val();
+        var DateOfBirth = $("#txtDateOfBirth").val();
+       
+        var CollegeID = $("#CollegeID").val();
+        var isValied = true;
+        if (StudentName == "") {
+            $("#divErrorMsg").text("Please enter name").addClass("alert alert-danger");
+            isValied = false;
+        }
+        else if (Email == "") {
+            $("#divErrorMsg").text("Please enter email").addClass("alert alert-danger");
+            isValied = false;
+        }
+        else if (Gender == "") {
+            $("#divErrorMsg").text("Please select gender").addClass("alert alert-danger");
+            isValied = false;
+        }
+        else if (DateOfBirth == "") {
+            $("#divErrorMsg").text("Please enter DateOfBirth").addClass("alert alert-danger");
+            isValied = false;
+        }
+        else if (CollegeID == "") {
+            $("#divErrorMsg").text("Please select College").addClass("alert alert-danger");
+            isValied = false;
+        }
+
+
+        if (isValied) {
+      
+ $("#txtDateOfBirth").val(DateOfBirth);
+            $("#form-add-student").submit();
+        }
+
+    }
+
+</script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script>
+    $(document).ready(function () {
+       $("#txtDateOfBirth").datepicker({
+           dateFormat: 'mm/dd/yy',
+           changeYear: true
+           
+        });
+
+    });
+</script>

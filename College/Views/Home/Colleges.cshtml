@@ -1,0 +1,158 @@
+﻿@model College.Models.AllModel
+@{
+    ViewBag.Title = "Colleges";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title">Colleges</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <tr>
+                                        <th>
+                                            ID
+                                        </th>
+                                        <th>
+                                            Name
+                                        </th>
+                                        <th>
+                                            Address
+                                        </th>
+                                        <th>
+                                            Contact
+                                        </th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Model.CollegeModelList.Count > 0)
+                                    {
+                                        foreach (var item in Model.CollegeModelList)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @item.CollegeID
+                                                </td>
+                                                <td>
+                                                    @item.CollegeName
+                                                </td>
+                                                <td>
+                                                    @item.Address, @item.City, @item.State, @item.Country
+                                                </td>
+                                                <td>
+                                                    @item.ContactNumber
+                                                </td>
+
+                                            </tr>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <tr><td colspan="5">no record exist</td></tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title">Students</h4>
+
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <tr>
+                                        <th>
+                                            ID
+                                        </th>
+                                        <th>
+                                            Name
+                                        </th>
+                                        <th>
+                                            Gender
+                                        </th>
+                                        <th>
+                                            DOB
+                                        </th>
+                                        <th>
+                                            Address
+                                        </th>
+                                        <th>
+                                            Email
+                                        </th>
+                                        <th>
+                                            Contact
+                                        </th>
+                                        <th>
+                                            College
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Model.StudentModelList.Count > 0)
+                                    {
+                                        foreach (var item in Model.StudentModelList)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @item.StudentID
+                                                </td>
+                                                <td>
+                                                    @item.StudentName
+                                                </td>
+                                                <td>
+                                                    @item.Gender
+                                                </td>
+                                                <td>
+                                                    @item.DateOfBirth
+                                                </td>
+                                                <td>
+                                                    @item.Address
+                                                </td>
+                                                <td>
+                                                    @item.Email
+                                                </td>
+                                                <td>
+                                                    @item.ContactNumber
+                                                </td>
+                                                <td>
+                                                    @item.CollegeName
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <tr><td colspan="10">no record exist</td></tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,81 @@
+﻿@model College.Models.CollegeModel
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title">Colleges</h4>
+
+                    </div>
+                    <div class="card-body">
+                        <div class="pull-right">
+                            <a class="btn btn-primary " href="/Admin/AddEdit" style="    color: white;">Add new College</a>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <tr>
+                                        <th>
+                                            ID
+                                        </th>
+                                        <th>
+                                            Name
+                                        </th>
+                                        <th>
+                                            Address
+                                        </th>
+                                        <th>
+                                            Contact
+                                        </th>                                       
+                                        <th>
+                                            Actions
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @if (Model.collegeList.Count > 0)
+                                    {
+                                        foreach (var item in Model.collegeList)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @item.CollegeID
+                                                </td>
+                                                <td>
+                                                    @item.CollegeName
+                                                </td>
+                                                <td>
+                                                    @item.Address, @item.City, @item.State, @item.Country
+                                                </td>
+                                                <td>
+                                                    @item.ContactNumber
+                                                </td>
+                                                <td>
+                                                    <a class="btn btn-primary " href="/Admin/AddEdit/@item.CollegeID" style="color: white;">Edit</a>
+                                                    <a class="btn btn-primary " href="/Admin/DeleteCollege/@item.CollegeID" style="color: white;">Delete</a>
+                                                    <a class="btn btn-primary " href="/Admin/Student/@item.CollegeID" style="color: white;">View Student</a>
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <tr><td colspan="5">no record exist</td></tr>
+                                    }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
