@@ -46,3 +46,5 @@ One-to-one
 
 When just one case of an entity is connected with the bond, it is marked as '1:1'. In one-to-one connection each one entity should be associated with the bond.
 
+Document file attached with screenshots
+
